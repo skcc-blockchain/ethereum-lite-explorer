@@ -16,10 +16,16 @@ if (process.env.APP_NODE_URL) {
     if (Array.isArray(pluginConfigs)) {
         let litePluginConfig = pluginConfigs.find(plugin => plugin.uri.match(/^plugin:\/\/aleth.io\/eth-lite/)).config;
         litePluginConfig["nodeUrl"] = process.env.APP_NODE_URL;
+        if (process.env.APP_NODE_JWT) {
+            litePluginConfig["jwtStr"] = process.env.APP_NODE_JWT;
+        }
     } else {
         // Legacy format: removing this will be a breaking change for Docker setups with custom config mounted.
         let litePluginKey = Object.keys(pluginConfigs).find(k => k.match(/^plugin:\/\/aleth.io\/eth-lite/));
         pluginConfigs[litePluginKey]["nodeUrl"] = process.env.APP_NODE_URL;
+        if (process.env.APP_NODE_JWT) {
+            pluginConfigs[litePluginKey]["jwtStr"] = process.env.APP_NODE_JWT;
+        }
     }
 }
 
