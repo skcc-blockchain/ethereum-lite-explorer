@@ -1,3 +1,38 @@
+## usage
+- local test
+```
+mkdir build-explorer 
+cd build-explorer
+git clone https://github.com/skcc-blockchain/ethereum-lite-explorer.git
+git clone https://github.com/skcc-blockchain/explorer-core-plugins.git
+cd explorer-core-plugins
+npm install
+npm run build-dev
+cd ..
+cd ethereum-lite-explorer
+npm install
+cp config.jwt.sample.json config.dev.json
+# config.dev.json 파일을 확인하여, 필요시 수정 (eth-lite의 nodeUrl, jwtStr 항목)
+npm run build-dev
+npm start
+```
+- docker test
+```
+mkdir build-explorer 
+cd build-explorer
+git clone https://github.com/skcc-blockchain/ethereum-lite-explorer.git
+git clone https://github.com/skcc-blockchain/explorer-core-plugins.git
+cd explorer-core-plugins
+npm install
+npm run build
+cd ..
+cd ethereum-lite-explorer
+# docker-build-run.sh 파일 수정 후, 실행
+sh docker-build-run.sh
+# 작업 완료된 후, 크롬 등에서 http://localhost/ 로 접속
+# 에러시, config.chainz.docker.json 파일의 plugin 버전 등 확인
+```
+
 # Ethereum Lite Explorer by Alethio
 The **Lite Explorer**  is a client-side only web application that connects directly to a [Ethereum JSON RPC](https://github.com/ethereum/wiki/wiki/JSON-RPC) compatible node.
 This means you can have your own private Ethereum Explorer should you wish so.
