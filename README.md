@@ -27,7 +27,7 @@ npm install
 npm run build
 cd ..
 cd ethereum-lite-explorer
-# docker-build-run.sh 파일 수정 후, 실행
+# docker-build-run.sh 파일 수정(APP_NODE_URL, APP_NODE_JWT, 이미지 버전 등) 후, 실행
 sh docker-build-run.sh
 # 작업 완료된 후, 크롬 등에서 http://localhost/ 로 접속
 # 에러시, config.chainz.docker.json 파일의 plugin 버전 등 확인

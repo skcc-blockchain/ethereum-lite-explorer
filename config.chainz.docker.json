@@ -13,7 +13,7 @@
             "nodeUrl": "https://besu.chainz.network"
         }
     }, {
-        "uri": "plugin://aleth.io/eth-ibft2?v=2.0.1"
+        "uri": "plugin://aleth.io/eth-ibft2"
     }],
 
     "pages": [{
