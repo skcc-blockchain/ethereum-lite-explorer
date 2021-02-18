@@ -1,37 +1,62 @@
 ## usage
-- local test
+### local build
 ```
+# 프로젝용 폴더 생성
 mkdir build-explorer 
 cd build-explorer
+
+# 소스코드 다운로드
 git clone https://github.com/skcc-blockchain/ethereum-lite-explorer.git
 git clone https://github.com/skcc-blockchain/explorer-core-plugins.git
+
+# 플러그인 소스 빌드
 cd explorer-core-plugins
 npm install
 npm run build-dev
+
+# explorer 소스코드로 이동
 cd ..
 cd ethereum-lite-explorer
+
+# explorer 소스코드 빌드
 npm install
+# config.jwt.sample.json 파일은 jwtStr 옵션 추가 및 불필요한 3Box plugin을 사용하지 않도록 되어 있음.
 cp config.jwt.sample.json config.dev.json
-# config.dev.json 파일을 확인하여, 필요시 수정 (eth-lite의 nodeUrl, jwtStr 항목)
+# config.dev.json 파일을 확인하여, 필요시 수정 (eth-lite의 nodeUrl, jwtStr 항목 수정)
 npm run build-dev
+
+# 빌드된 explorer 실행
 npm start
 ```
-- docker test
+### docker build
+- docker image로 build하고, container로 실행함.
 ```
+# 프로젝용 폴더 생성
 mkdir build-explorer 
 cd build-explorer
+
+# 소스코드 다운로드
 git clone https://github.com/skcc-blockchain/ethereum-lite-explorer.git
 git clone https://github.com/skcc-blockchain/explorer-core-plugins.git
+
+# 플러그인 소스 빌드
 cd explorer-core-plugins
 npm install
 npm run build
+
+# explorer 소스코드로 이동
 cd ..
 cd ethereum-lite-explorer
-# docker-build-run.sh 파일 수정(APP_NODE_URL, APP_NODE_JWT, 이미지 버전 등) 후, 실행
+
+# docker image build 및 runß
+## docker-build-run.sh 파일 수정 필요(APP_NODE_URL, APP_NODE_JWT, 이미지 버전 등)
 sh docker-build-run.sh
 # 작업 완료된 후, 크롬 등에서 http://localhost/ 로 접속
 # 에러시, config.chainz.docker.json 파일의 plugin 버전 등 확인
 ```
+
+- [참고자료](https://myshare.skcc.com/pages/viewpage.action?pageId=100092545)
+
 
 # Ethereum Lite Explorer by Alethio
 The **Lite Explorer**  is a client-side only web application that connects directly to a [Ethereum JSON RPC](https://github.com/ethereum/wiki/wiki/JSON-RPC) compatible node.

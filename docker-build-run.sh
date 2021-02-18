@@ -5,11 +5,11 @@ export APP_BASE_URL='https://explorer.chainz.biz'
 export APP_NODE_URL='https://besu.chainz.network'
 export APP_NODE_JWT='eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJwZXJtaX..........P9ofhoQ'
 IMG_NAME='chainz-explorer'
-IMG_TAG=$IMG_NAME':0.6'
+IMG_TAG=$IMG_NAME':0.2'
 
 EXPLORER_NAME='mainnet-'$IMG_NAME
 
-# 라이브러리? 확인 및 준비
+# 플러그인 및 config 파일 확인 및 준비
 if [ ! -f ./config.chainz.docker.json ]; then
     echo "not found './config.chainz.docker.json'"
     exit
