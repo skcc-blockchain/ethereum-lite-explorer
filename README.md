@@ -1,5 +1,6 @@
 ## usage
 ### local build
+- 아래 코드는 dev 환경용 빌드(build) 설정이며, 운영환경용 빌드는 npm run build-dev 대신 npm run build로 변경하여 실행하면 됨.
 ```
 # 프로젝용 폴더 생성
 mkdir build-explorer 
@@ -23,13 +24,13 @@ npm install
 # config.jwt.sample.json 파일은 jwtStr 옵션 추가 및 불필요한 3Box plugin을 사용하지 않도록 되어 있음.
 cp config.jwt.sample.json config.dev.json
 # config.dev.json 파일을 확인하여, 필요시 수정 (eth-lite의 nodeUrl, jwtStr 항목 수정)
-npm run build-dev
 
-# 빌드된 explorer 실행
-npm start
+# explorer dev 모드로 build 및 실행
+sh npm-build-run-dev.sh
 ```
+
 ### docker build
-- docker image로 build하고, container로 실행함.
+- docker image로 build하고, container로 실행함. (운영환경용 빌드)
 ```
 # 프로젝용 폴더 생성
 mkdir build-explorer 
@@ -39,7 +40,7 @@ cd build-explorer
 git clone https://github.com/skcc-blockchain/ethereum-lite-explorer.git
 git clone https://github.com/skcc-blockchain/explorer-core-plugins.git
 
-# 플러그인 소스 빌드
+# 플러그인 소스 빌드 (운영환경용)
 cd explorer-core-plugins
 npm install
 npm run build
